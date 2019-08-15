@@ -15,15 +15,15 @@ test:
       pre:
         - ls -la docker-java
         - $CIRCLE_PROJECT_REPONAME/circle.sh pre_machine
-        post:
-          - $CIRCLE_PROJECT_REPONAME/circle.sh post_machine
-        services:
-          - docker
-        environment:
-          MAVEN_OPTS: -Xmx128m
-          DOCKER_HOST: tcp://127.0.0.1:2376
-          DOCKER_CERT_PATH: $HOME/.docker
-          DOCKER_TLS_VERIFY: 1
+      post:
+        - $CIRCLE_PROJECT_REPONAME/circle.sh post_machine
+      services:
+        - docker
+      environment:
+        MAVEN_OPTS: -Xmx128m
+        DOCKER_HOST: tcp://127.0.0.1:2376
+        DOCKER_CERT_PATH: $HOME/.docker
+        DOCKER_TLS_VERIFY: 1
 
 general:
   artifacts:
